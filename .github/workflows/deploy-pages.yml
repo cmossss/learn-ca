@@ -17,4 +17,13 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install mkdocs-material
+      - name: 组装站点内容到 docs/
+        run: |
+          mkdir -p docs
+          cp PLAN.md docs/PLAN.md
+          cp index.md docs/index.md
+          cp README.md docs/README.md
+          cp -r notes docs/notes
+          cp -r papers docs/papers
+          cp -r reviews docs/reviews
       - run: mkdocs gh-deploy --force

@@ -28,3 +28,6 @@ obj_dir/
 # 系统文件
 Thumbs.db
 .DS_Store
+
+# MkDocs 构建产物（由 Actions 自动生成）
+docs/

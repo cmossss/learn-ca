@@ -2,7 +2,7 @@ site_name: Learn-CA
 site_description: 计算机体系结构 + GPGPU 系统学习笔记（RTL 视角）
 site_url: https://cmossss.github.io/learn-ca/
 repo_url: https://github.com/cmossss/learn-ca
-docs_dir: .
+docs_dir: docs
 
 theme:
   name: material
@@ -25,13 +25,6 @@ theme:
 
 plugins:
   - search
-
-# 排除不进入网站的文件
-exclude_docs: |
-  mkdocs.yml
-  CLAUDE.md
-  README.md
-  labs/*
 
 nav:
   - 首页: index.md
