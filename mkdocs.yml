@@ -1,0 +1,42 @@
+site_name: Learn-CA
+site_description: 计算机体系结构 + GPGPU 系统学习笔记（RTL 视角）
+site_url: https://cmossss.github.io/learn-ca/
+repo_url: https://github.com/cmossss/learn-ca
+docs_dir: .
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗色
+  features:
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+
+plugins:
+  - search
+
+# 排除不进入网站的文件
+exclude_docs:
+  - mkdocs.yml
+  - CLAUDE.md
+  - README.md
+  - labs/*
+
+nav:
+  - 首页: index.md
+  - 学习计划: PLAN.md
+  - 学习笔记:
+      - 摸底自测: notes/self_assessment.md
+  - 每周复盘: reviews/index.md
+  - 论文精读: papers/index.md
