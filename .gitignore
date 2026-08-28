@@ -1,0 +1,30 @@
+# Claude Code 个人配置（settings 等，不进版本库）
+.claude/
+
+# RTL 仿真输出目录与波形（按你的仿真工具增减）
+sim/
+work/
+vsim.wlf
+*.wlf
+*.vcd
+*.fsdb
+*.vpd
+transcript
+modelsim.ini
+xsim.dir/
+obj_dir/
+*.jou
+*.pb
+*.log
+
+# Vivado 工程生成物
+*.runs/
+*.cache/
+*.hw/
+*.sim/
+*.gen/
+*.ip_user_files/
+
+# 系统文件
+Thumbs.db
+.DS_Store
