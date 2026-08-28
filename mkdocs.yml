@@ -27,11 +27,11 @@ plugins:
   - search
 
 # 排除不进入网站的文件
-exclude_docs:
-  - mkdocs.yml
-  - CLAUDE.md
-  - README.md
-  - labs/*
+exclude_docs: |
+  mkdocs.yml
+  CLAUDE.md
+  README.md
+  labs/*
 
 nav:
   - 首页: index.md
