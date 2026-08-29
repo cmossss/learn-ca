@@ -1,0 +1,1402 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="计算机体系结构 + GPGPU 系统学习笔记（RTL 视角）">
+      
+      
+      
+        <link rel="canonical" href="https://cmossss.github.io/learn-ca/PLAN/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../notes/self_assessment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>学习计划 - Learn-CA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gpgpu-learn-ca" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Learn-CA" class="md-header__button md-logo" aria-label="Learn-CA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn-CA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              学习计划
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到亮色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到暗色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cmossss/learn-ca" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Learn-CA" class="md-nav__button md-logo" aria-label="Learn-CA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learn-CA
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cmossss/learn-ca" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习计划
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习计划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学员画像与目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三条核心原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-0-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 0：摸底与工具链（第 1 周）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-1-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1：体系结构核心（第 1-6 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1：体系结构核心（第 1-6 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-phase-0-isa-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1（与 Phase 0 并行）：ISA 与 RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2：流水线基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3：分支预测与控制冒险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4：乱序执行（难度陡增，可放缓）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5-6：缓存与存储层次
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2gpu-gpgpu-7-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2：GPU / GPGPU 基础（第 7-12 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2：GPU / GPGPU 基础（第 7-12 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7gpu-simt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7：GPU 设计哲学 + SIMT 执行模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-9gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8-9：GPU 存储层次 + 访存合并
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-11warp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10-11：Warp 调度与延迟隐藏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12：GPU 同步 / 原子操作 / 编程模型深水区（结合你工作）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-gpgpu-13-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3：深度学习 GPGPU 架构（第 13-20 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3：深度学习 GPGPU 架构（第 13-20 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-13-14nvidia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13-14：NVIDIA 现代架构深挖
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-15amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15：AMD 架构对比 + 分岔探索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16-18：片上网络 / 存储系统 / 高级话题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-19-20capstone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 19-20：综合项目（Capstone）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        英文学习资源总表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        周节奏建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        纪律建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notes/self_assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摸底自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    每周复盘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学员画像与目标
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三条核心原则
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        目录结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-0-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 0：摸底与工具链（第 1 周）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-1-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1：体系结构核心（第 1-6 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1：体系结构核心（第 1-6 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-1-phase-0-isa-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 1（与 Phase 0 并行）：ISA 与 RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 2：流水线基础
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 3：分支预测与控制冒险
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 4：乱序执行（难度陡增，可放缓）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 5-6：缓存与存储层次
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2gpu-gpgpu-7-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2：GPU / GPGPU 基础（第 7-12 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2：GPU / GPGPU 基础（第 7-12 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-7gpu-simt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 7：GPU 设计哲学 + SIMT 执行模型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-8-9gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 8-9：GPU 存储层次 + 访存合并
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-10-11warp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 10-11：Warp 调度与延迟隐藏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-12gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 12：GPU 同步 / 原子操作 / 编程模型深水区（结合你工作）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-gpgpu-13-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3：深度学习 GPGPU 架构（第 13-20 周）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3：深度学习 GPGPU 架构（第 13-20 周）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#week-13-14nvidia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 13-14：NVIDIA 现代架构深挖
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-15amd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 15：AMD 架构对比 + 分岔探索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-16-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 16-18：片上网络 / 存储系统 / 高级话题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#week-19-20capstone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week 19-20：综合项目（Capstone）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        英文学习资源总表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        周节奏建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        纪律建议
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="gpgpu-learn-ca">GPGPU 系统学习计划 (Learn-CA)</h1>
+<blockquote>
+<p>学习是一个主动过程：读教材是输入，动手实现和复述是输出。<strong>本计划要求每个主题都配一个 RTL 练习</strong>，用电路实现去消化抽象概念。</p>
+</blockquote>
+<h2 id="_1">学员画像与目标</h2>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>背景</td>
+<td>有体系结构常识但未系统学过</td>
+</tr>
+<tr>
+<td>现状</td>
+<td>需要把体系结构 + GPGPU 架构知识系统化</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>体系结构基础 → GPGPU/GPU 架构深入 → RTL 动手实践</td>
+</tr>
+<tr>
+<td>时间</td>
+<td>工作日 1-2h/天 + 周末较多，约 12-15h/周</td>
+</tr>
+<tr>
+<td>总周期</td>
+<td>约 5-6 个月</td>
+</tr>
+<tr>
+<td>资料</td>
+<td>英文为主</td>
+</tr>
+<tr>
+<td>实践</td>
+<td>RTL 实现为主，自备仿真环境（无 NVIDIA GPU）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">三条核心原则</h2>
+<ol>
+<li><strong>用电路思维学体系结构</strong>——你最大的优势是硬件直觉。每个概念都要能「翻译」成时序图/数据通路：forwarding 就是旁路 MUX，hazard 就是 stall 信号，register renaming 就是一张映射表。遇到难懂的概念，先在纸上画 datapath。</li>
+<li><strong>每个主题配一个 RTL lab</strong>——动手实现是把理论变成肌肉记忆的唯一方式，也是你作为 RTL 工程师最有产出感的学习路径。</li>
+<li><strong>笔记用英文术语写</strong>——公司文档、论文、面试都基于英文术语。在 <code>notes/</code> 里用英文记概念，用自己的话复述（费曼学习法）。</li>
+</ol>
+<h2 id="_3">目录结构</h2>
+<pre><code>D:\learn_ca\
+├── PLAN.md          # 本计划（滚动更新，每完成一项打勾）
+├── notes/           # 学习笔记：每个主题一个文件，英文术语 + 中文解释
+├── labs/            # RTL 练习，按 lab0, lab1... 组织
+├── papers/          # 论文精读笔记（一篇一个文件）
+└── reviews/         # 每周复盘：本周学了什么 / 卡在哪 / 下周计划
+</code></pre>
+<hr />
+<h2 id="phase-0-1">Phase 0：摸底与工具链（第 1 周）</h2>
+<p><strong>目标</strong>：确认知识缺口，跑通仿真环境，完成第一个热身练习。</p>
+<ul>
+<li>[x] <strong>0.1 摸底自测</strong> ✅ 完成（2026-08-29）。结论：<strong>体系结构接近零起点</strong>——Part A 有零星印象（RISC 定长、三种寻址模式含义），但 Q2 判型答成 funct3（应为 opcode）、load-store 设计动机不清晰；Part B~E 全部「完全没概念」。<strong>Phase 1 不可快进</strong>，从 Lab 0 正常推进。注意：学员自评偏保守（Q1 实际答对却标「听说过」），以实际作答为准。</li>
+<li>[ ] <strong>0.2 仿真环境确认</strong>：确认你现有仿真 flow 能跑 SystemVerilog，能看波形。若想在家也练，可考虑 <a href="https://www.veripool.org/verilator/">Verilator</a>（开源、快，适合本计划；工作环境用公司 flow 即可）</li>
+<li>[ ] <strong>0.3 Lab 0：RV32I 单周期 CPU</strong>（热身 + 验证环境）</li>
+<li>实现 IF/ID/EX/MEM/WB 五段逻辑（非流水线）的 RV32I 处理器：取指、译码、寄存器堆、ALU、数据内存</li>
+<li>跑通简单测试程序（如求斐波那契），能看波形</li>
+<li>参考：Patterson &amp; Hennessy《Computer Organization and Design》RISC-V 版 Ch.4 的 RISC-V 数据通路；<a href="https://riscv.org/technical/specifications/">RISC-V 规范</a></li>
+<li>[ ] <strong>0.4 搭建笔记模板</strong>：在 <code>notes/</code> 建 <code>template.md</code></li>
+</ul>
+<hr />
+<h2 id="phase-1-1-6">Phase 1：体系结构核心（第 1-6 周）</h2>
+<blockquote>
+<p>你有硬件底子，这块可以快但不要跳。这是 GPGPU 所有概念的地基（调度、乱序、存储层次……GPU 全都在用）。</p>
+</blockquote>
+<p><strong>教材</strong>：Patterson &amp; Hennessy《Computer Organization and Design, RISC-V Edition》(简称 CO&amp;D) + Hennessy &amp; Patterson《Computer Architecture: A Quantitative Approach 6th》(简称 CAQA)。CO&amp;D 讲原理，CAQA 讲定量分析（等你进入 Phase 3 论文阶段会大量用到）。</p>
+<h3 id="week-1-phase-0-isa-risc-v">Week 1（与 Phase 0 并行）：ISA 与 RISC-V</h3>
+<ul>
+<li><strong>阅读</strong>：CO&amp;D Ch.2；RISC-V Unprivileged Spec 的 RV32I/RV64I 部分</li>
+<li><strong>笔记</strong>：<code>notes/isa.md</code> —— 指令编码、寄存器约定、addressing modes、为什么定长指令对流水线友好</li>
+<li><strong>Lab 0</strong> 完成</li>
+</ul>
+<h3 id="week-2">Week 2：流水线基础</h3>
+<ul>
+<li><strong>阅读</strong>：CO&amp;D Ch.4（5 级流水线、三类 hazard、forwarding、load-use stall、分支损失）</li>
+<li><strong>笔记</strong>：<code>notes/pipeline.md</code> —— 用时序图画出 5 级流水线；画出 forwarding 数据通路</li>
+<li><strong>Lab 1a</strong>：把 Lab 0 改成 5 级流水线（加流水线寄存器）</li>
+</ul>
+<h3 id="week-3">Week 3：分支预测与控制冒险</h3>
+<ul>
+<li><strong>阅读</strong>：CO&amp;D Ch.4 后半；CAQA Ch.3（分支预测）挑读</li>
+<li><strong>笔记</strong>：<code>notes/branch_prediction.md</code> —— static vs dynamic、2-bit 饱和计数器、BTB、BTB 缺失损失</li>
+<li><strong>Lab 1b</strong>：Lab 1a 加 forward + load-use stall + 2-bit branch predictor（带 BTB），对比加预测器前后 CPI</li>
+<li><strong>里程碑</strong>：一个能跑出真实 CPI 收益的流水线 RISC-V CPU ✅</li>
+</ul>
+<h3 id="week-4">Week 4：乱序执行（难度陡增，可放缓）</h3>
+<ul>
+<li><strong>阅读</strong>：CAQA Ch.3（数据冒险的三种处理：stall → 静态调度 → 动态调度）；Tomasulo 算法；register renaming、ROB</li>
+<li><strong>视频（强烈推荐）</strong>：Onur Mutlu 的 CMU 18-447 课程 OoO 相关 lecture（YouTube，英文）</li>
+<li><strong>笔记</strong>：<code>notes/oo_execution.md</code> —— 画出 Tomasulo 的 reservation station 数据通路</li>
+<li><strong>Lab 2</strong>（可选/进阶，量力而行）：</li>
+<li>方案 A：实现一个<strong>简化 Tomasulo 控制器</strong>（2 个 ALU + 1 个 Load 单元，支持 reg renaming，处理 WAW/WAR），RTL 或 SystemVerilog 均可</li>
+<li>方案 B：读一个开源 OoO 核心的 RTL（如 <a href="https://github.com/chipsalliance/rocket-chip">Rocket</a>/<a href="https://boom-core.org/">BOOM</a>）并写架构级代码走读笔记（这一步对你在公司读别家 GPU 的调度逻辑很有用）</li>
+<li>如果时间紧，<strong>至少</strong>用一段话说明 OoO 怎么消除 WAR/WAW，怎么在 GPU 上（无 renaming、靠 warp-level parallelism 隐藏）是另一条路——这为 Phase 2 埋伏笔</li>
+</ul>
+<h3 id="week-5-6">Week 5-6：缓存与存储层次</h3>
+<ul>
+<li><strong>阅读</strong>：CAQA Ch.2（这是最核心的一章：cache 组织、替换、写策略、缺失类型 3C、DRAM 结构、内存调度、虚拟内存/TLB）</li>
+<li><strong>笔记</strong>：<code>notes/memory_hierarchy.md</code> —— 画 cache 结构；算 miss rate 的例子；理解「为什么 GPU 高延迟容忍改变了 cache 设计取舍」</li>
+<li><strong>Lab 3</strong>：实现一个参数化 L1 cache（可配 assoc / line size / 替换策略，含 write-back + write-allocate），RTL 实现 + 简单测试；有条件可接回 Lab 1 的 CPU 做真实对比</li>
+<li><strong>里程碑</strong>：Phase 1 完成，此时你已有完整体系结构视野 ✅</li>
+</ul>
+<hr />
+<h2 id="phase-2gpu-gpgpu-7-12">Phase 2：GPU / GPGPU 基础（第 7-12 周）</h2>
+<blockquote>
+<p>核心心法：<strong>GPU 是体系结构设计空间里与 CPU 相反的一个极端</strong>。CPU 优化延迟（一堆硬件为单个指令流提速），GPU 优化吞吐（放弃单线程性能，用大规模并行+延迟隐藏换总吞吐）。抓住这个对比，整个 GPU 架构就都能理解。</p>
+</blockquote>
+<p><strong>教材</strong>：Kirk &amp; Hwu《Programming Massively Parallel Processors》(3rd/4th ed，英文) + NVIDIA《CUDA C Programming Guide》(免费官方文档，重点读 Programming Model 与 Memory Hierarchy 章节)</p>
+<h3 id="week-7gpu-simt">Week 7：GPU 设计哲学 + SIMT 执行模型</h3>
+<ul>
+<li><strong>阅读</strong>：CUDA Guide 前几章（thread/grid/block 抽象）；NVIDIA <a href="https://www.nvidia.com/content/pdf/fermi_white_papers/NVIDIA_Fermi_Compute_Architecture_Whitepaper.pdf">Fermi 白皮书</a>（GPU 架构入门经典）；《Programming Massively Parallel Processors》前 3 章</li>
+<li><strong>关键概念</strong>：SIMT vs SIMD；warp；lane；lockstep 执行；分支发散 divergence；<code>__syncthreads</code></li>
+<li><strong>笔记</strong>：<code>notes/gpu_philosophy.md</code> —— 用表格对比 CPU vs GPU 在调度/缓存/寄存器/中断/同步上的取舍</li>
+<li><strong>Lab 4（旗舰练习）：迷你 SIMT 核心</strong></li>
+<li>实现一个 4-lane（或 8-lane）的 SIMT 处理器：取指 → warp 调度 → 指令广播到各 lane → 按 lane mask 执行 → 简化分支处理（无发散则广播，发散则串行化/重收敛栈）</li>
+<li>关键模块：lane 的状态掩码、warp 寄存器文件（按 lane 分bank）、统一的指令流</li>
+<li>这一步直接复刻 NVIDIA SM 的骨架，做完你对 warp 的理解会远超读十篇文章</li>
+</ul>
+<h3 id="week-8-9gpu">Week 8-9：GPU 存储层次 + 访存合并</h3>
+<ul>
+<li><strong>阅读</strong>：《Programming Massively Parallel Processors》内存相关章节；CUDA Guide 的 Memory Hierarchy 与 Shared Memory 章节；NVIDIA 各代白皮书的 memory 部分</li>
+<li><strong>关键概念</strong>：寄存器、shared memory、L1/L2、global/constant/texture；<strong>memory coalescing</strong>（合并访存是把带宽用满的头号优化）；bank conflict</li>
+<li><strong>笔记</strong>：<code>notes/gpu_memory.md</code> —— 画 GPU 存储层次图；用例子说明 coalescing 的命中/错过</li>
+<li><strong>Lab 5a</strong>：实现一个 banked shared memory（如 8 banks × 32bit），带 <strong>bank conflict 检测单元</strong>（模拟一次访问的 cycle 数）</li>
+<li><strong>Lab 5b</strong>：实现一个简化的 <strong>coalescer</strong>（把 warp 内 32 个 lane 的标量地址合并成 128B 的 cache line 请求），对比合并前后带宽利用</li>
+</ul>
+<h3 id="week-10-11warp">Week 10-11：Warp 调度与延迟隐藏</h3>
+<ul>
+<li><strong>阅读</strong>：Fermi/Kepler/Volta 白皮书里关于 warp scheduler 的部分；论文《An Analysis of GPU Warp Scheduling Algorithms》或《The importance of warp scheduling》</li>
+<li><strong>关键概念</strong>：occupancy（占用率，决定多少个 warp 在藏延迟）；round-robin vs greedy-then-oldest 调度；latency hiding 的本质=多个独立 warp 交错执行</li>
+<li><strong>笔记</strong>：<code>notes/warp_scheduling.md</code> —— 手算 occupancy：给定寄存器数/线程数，能放下几个 warp</li>
+<li><strong>Lab 6</strong>：实现一个 <strong>warp scheduler + occupancy 计算器</strong>（跟踪各 warp 的 ready 状态，round-robin 和 greedy 两种策略可切换，输出每周期 IPC 对比）</li>
+<li><strong>里程碑</strong>：Phase 2 完成，你已经能看懂现代 GPU 的 SM 结构图 ✅</li>
+</ul>
+<h3 id="week-12gpu">Week 12：GPU 同步 / 原子操作 / 编程模型深水区（结合你工作）</h3>
+<ul>
+<li><strong>阅读</strong>：CUDA Guide 的 atomics / memory model 章节；《Programming Massively Parallel Processors》协同并行章节</li>
+<li><strong>输出</strong>：画一张「一个 kernel 从 launch 到 retire」在硬件里的完整旅程图（CUDA launch → 前端 → dispatch → SM → warp 执行 → 返回）。这张图会是你在公司最有用的心智模型之一</li>
+</ul>
+<hr />
+<h2 id="phase-3-gpgpu-13-20">Phase 3：深度学习 GPGPU 架构（第 13-20 周）</h2>
+<blockquote>
+<p>进入论文级理解。目标：能读懂并复述 ISCA/MICRO/HPCA 的 GPGPU 论文，能对比不同厂商架构。</p>
+</blockquote>
+<h3 id="week-13-14nvidia">Week 13-14：NVIDIA 现代架构深挖</h3>
+<ul>
+<li><strong>阅读</strong>：Volta / Turing / Ampere / Hopper 白皮书（NVIDIA 官网全免费）；重点：SM 内部结构、warp scheduler 数量、tensor core、special function unit、异步拷贝（async copy / TMA）、线程块集群</li>
+<li><strong>笔记</strong>：<code>notes/nvidia_generations.md</code> —— 按代际做一张「SM 组成」对比表（多少 SM 单元 / 多少 scheduler / 多少 FP32 / Tensor Core 引入时间等）</li>
+<li><strong>练习</strong>：拿一张 Volta 或 Ampere SM 结构图，把 Phase 2 的 Lab 4-6 模块<strong>一一对应</strong>到真实架构的部件上</li>
+</ul>
+<h3 id="week-15amd">Week 15：AMD 架构对比 + 分岔探索</h3>
+<ul>
+<li><strong>阅读</strong>：AMD CDNA2/3、RDNA 白皮书（wave32/wave64 vs NVIDIA warp）；可对比 Intel 的 Xe 架构</li>
+<li><strong>笔记</strong>：<code>notes/amd_vs_nvidia.md</code> —— 对比调度粒度、寄存器组织、cache 策略、GPGPU 编程模型的差异</li>
+</ul>
+<h3 id="week-16-18">Week 16-18：片上网络 / 存储系统 / 高级话题</h3>
+<ul>
+<li><strong>阅读</strong>：CAQA Ch.5 与 NoC 相关；论文：GPGPU 相关 cache management、memory partitioning、NoC</li>
+<li><strong>话题清单</strong>（挑 2-3 个精读）：GPU 全局内存调度（内存控制器如何给不同 warp 排队）、L2 切分策略、片上互连拓扑、virtual memory 在 GPU 的实现（大页、unified memory）</li>
+<li><strong>笔记</strong>：<code>notes/advanced_topics.md</code> + <code>papers/</code> 每篇一个精读笔记（问题/方法/结论/对你工作的启示）</li>
+</ul>
+<h3 id="week-19-20capstone">Week 19-20：综合项目（Capstone）</h3>
+<ul>
+<li><strong>Lab 7：张量/矩阵乘单元（Tensor-Core 式）</strong></li>
+<li>实现一个 systolic array（如 4x4 或 8x8）的 MMA 单元，数据从 shared memory 流入，支持矩阵乘累加</li>
+<li>与朴素 MAC 实现对比 cycle 数 / 面积 / 利用率</li>
+<li>这是 tensor core 的骨架实现，做完对 GPU 的矩阵单元有彻底的理解</li>
+<li><strong>Capstone 汇报</strong>：把 Lab 4 + Lab 7 串起来，写一页架构说明（画框图 + 关键参数 + 性能对比），相当于一份「迷你 GPU 设计文档」</li>
+</ul>
+<hr />
+<h2 id="_4">英文学习资源总表</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>用途</th>
+<th>获取</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Patterson &amp; Hennessy, <em>Computer Organization and Design, RISC-V Edition</em></td>
+<td>体系结构原理（Phase 1）</td>
+<td>书</td>
+</tr>
+<tr>
+<td>Hennessy &amp; Patterson, <em>Computer Architecture: A Quantitative Approach</em> (6th)</td>
+<td>定量分析、论文基础（Phase 1/3）</td>
+<td>书</td>
+</tr>
+<tr>
+<td>Kirk &amp; Hwu, <em>Programming Massively Parallel Processors</em></td>
+<td>GPU 编程与架构（Phase 2）</td>
+<td>书</td>
+</tr>
+<tr>
+<td>NVIDIA <em>CUDA C Programming Guide</em></td>
+<td>GPU 编程模型/存储层次权威参考</td>
+<td>官网免费</td>
+</tr>
+<tr>
+<td>NVIDIA 各代白皮书 (Fermi→Hopper)</td>
+<td>GPU 架构一手资料</td>
+<td>nvidia.com 免费</td>
+</tr>
+<tr>
+<td>Onur Mutlu, <em>CMU 18-447 Computer Architecture</em> 课程视频</td>
+<td>体系结构深讲（尤其 OoO/缓存）</td>
+<td>YouTube 免费</td>
+</tr>
+<tr>
+<td>RISC-V Spec</td>
+<td>ISA 一手规范</td>
+<td>riscv.org 免费</td>
+</tr>
+<tr>
+<td>GPGPU-Sim / Accel-Sim（可选）</td>
+<td>架构级实验（跑在 CPU 上，<strong>无需 NVIDIA GPU</strong>）</td>
+<td>开源</td>
+</tr>
+<tr>
+<td>论文：ISCA / MICRO / HPCA / ASPLOS</td>
+<td>前沿架构</td>
+<td>各会议官网</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>提示：你无 NVIDIA GPU 也能学 CUDA 的<strong>架构概念</strong>（编程模型是架构无关的），只是不能亲手跑 kernel。RTL 路线不受影响。若未来想练性能分析，GPGPU-Sim 跑在 CPU 上、不需要真显卡，可作为补充。</p>
+</blockquote>
+<h2 id="_5">周节奏建议</h2>
+<pre><code>工作日（1-2h）：
+  前半周：读教材/论文，写 notes
+  后半周：推进 RTL lab（碎片时间适合写模块、改代码）
+周末（多）：集中做 lab 的联调/波形分析/复盘
+每周日晚：写 reviews/ 复盘，并在 PLAN.md 上打勾
+</code></pre>
+<h2 id="_6">纪律建议</h2>
+<ol>
+<li><strong>每周必须有一个可交付物</strong>（笔记 或 lab 进展），否则下周降速。</li>
+<li><strong>卡住超过 30 分钟就来找我</strong>——我是你的常驻导师，随时可以带着你的 RTL/笔记来讨论。</li>
+<li><strong>把公司工作的架构问题带回来</strong>：看不懂的 block 图、调度逻辑、cache 行为，都拿到这里一起拆解，这是最贴近实战的学习。</li>
+<li><strong>每个 lab 结束时写一小段「我学到了什么 + 还能怎么改」</strong>，防止「做完了但没懂」。</li>
+<li>计划是活的：进度快了就加深，慢了就砍 Lab 2 这种可选项目，随时跟我调整。</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

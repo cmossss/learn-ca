@@ -1,0 +1,1493 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="计算机体系结构 + GPGPU 系统学习笔记（RTL 视角）">
+      
+      
+      
+        <link rel="canonical" href="https://cmossss.github.io/learn-ca/notes/self_assessment/">
+      
+      
+        <link rel="prev" href="../../PLAN/">
+      
+      
+        <link rel="next" href="../../reviews/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>摸底自测 - Learn-CA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#self-assessment-20" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Learn-CA" class="md-header__button md-logo" aria-label="Learn-CA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learn-CA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              摸底自测
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到亮色"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到亮色" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到暗色"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到暗色" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cmossss/learn-ca" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learn-CA" class="md-nav__button md-logo" aria-label="Learn-CA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learn-CA
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cmossss/learn-ca" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习计划
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习笔记
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    学习笔记
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摸底自测
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    摸底自测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-aisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A：ISA 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part A：ISA 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-risc-vs-cisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. RISC vs CISC（⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-rv32i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2. RV32I 指令编码（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-addressing-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3. Addressing modes（⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4. 控制流指令的数据通路（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B：流水线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part B：流水线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5. 5 级流水线数据通路（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6-hazard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q6. 三类 Hazard（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q7. 分支 penalty 的定量估算（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q8. 加分支预测器的硬件（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C：缓存与存储层次
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part C：缓存与存储层次">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q9-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q9. Cache 组织方式（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q10. Cache 地址分解（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q11. 写策略（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q12-3c-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q12. 3C Model（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D：体系结构深水区（听过就行，答不上很正常）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part D：体系结构深水区（听过就行，答不上很正常）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q13-memory-consistency-vs-cache-coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q13. Memory Consistency vs Cache Coherence（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-ooo-warwaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q14. OoO 如何消 WAR/WAW（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-virtual-memory-tlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q15. Virtual Memory / TLB（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16-smt-vs-ooo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q16. SMT vs OoO 的延迟隐藏思路（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-egpgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E：GPGPU 常识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part E：GPGPU 常识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q17-simt-vs-simd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q17. SIMT vs SIMD（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q18. GPU 为什么能容忍高延迟（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q19-memory-coalescing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q19. Memory Coalescing（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-branch-divergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q20. Branch Divergence（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自评表（做完填这个）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reviews/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    每周复盘
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    论文精读
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-aisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A：ISA 基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part A：ISA 基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q1-risc-vs-cisc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q1. RISC vs CISC（⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q2-rv32i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q2. RV32I 指令编码（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q3-addressing-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q3. Addressing modes（⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4. 控制流指令的数据通路（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B：流水线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part B：流水线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5. 5 级流水线数据通路（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q6-hazard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q6. 三类 Hazard（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q7-penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q7. 分支 penalty 的定量估算（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q8. 加分支预测器的硬件（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C：缓存与存储层次
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part C：缓存与存储层次">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q9-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q9. Cache 组织方式（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q10-cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q10. Cache 地址分解（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q11. 写策略（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q12-3c-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q12. 3C Model（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part D：体系结构深水区（听过就行，答不上很正常）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part D：体系结构深水区（听过就行，答不上很正常）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q13-memory-consistency-vs-cache-coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q13. Memory Consistency vs Cache Coherence（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q14-ooo-warwaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q14. OoO 如何消 WAR/WAW（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q15-virtual-memory-tlb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q15. Virtual Memory / TLB（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q16-smt-vs-ooo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q16. SMT vs OoO 的延迟隐藏思路（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-egpgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part E：GPGPU 常识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part E：GPGPU 常识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#q17-simt-vs-simd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q17. SIMT vs SIMD（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q18-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q18. GPU 为什么能容忍高延迟（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q19-memory-coalescing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q19. Memory Coalescing（⬜⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q20-branch-divergence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q20. Branch Divergence（⬜⬜）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自评表（做完填这个）
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="self-assessment-20">Self-Assessment — 摸底自测（20 题）</h1>
+<blockquote>
+<p><strong>怎么用这份自测</strong></p>
+<p>这不是考试，是<strong>摸底</strong>。目的：找到你的知识缺口在哪，好让 PLAN.md 的节奏更准。</p>
+<p>三条规则：
+1. <strong>不会就跳</strong>，不要猜。每道题有三种回答方式：完整作答 / 写「听说过但不系统」/ 写「完全没概念」。诚实比答对更重要。
+2. <strong>允许用电路语言回答</strong>。你是 RTL 工程师，能用时序图、MUX、stall 信号解释的，直接画/直接写，比我更准。
+3. 每题标了难度 ⬜（应该会）⬜⬜（有印象但要系统化）⬜⬜⬜（可能没接触过）。这只是我的估计，答得好坏不影响它。</p>
+</blockquote>
+<p><strong>做完后</strong>：把每题的作答情况填到文末的<strong>自评表</strong>，连同作答一起发给我。我会据此调整 Phase 1 的深浅和速度。</p>
+<hr />
+<h2 id="part-aisa">Part A：ISA 基础</h2>
+<h3 id="q1-risc-vs-cisc">Q1. RISC vs CISC（⬜）</h3>
+<p>RISC 和 CISC 的核心区别是什么？为什么 RISC 用<strong>定长指令</strong>对流水线友好？（提示：可以从译码复杂度、指令执行时间、load-store 架构三个角度想）
+RISC指令长度固定，指令格式规整，CISC指令长度和格式不固定。因为定长指令操作码位置固定，所以对流水线友好</p>
+<h3 id="q2-rv32i">Q2. RV32I 指令编码（⬜⬜）</h3>
+<p>假设一条指令是 <code>add x5, x6, x7</code>：
+1. 写出它的 32-bit 编码格式（R-type），标出每个 field 的位置和 bit 宽度（opcode / rd / funct3 / rs1 / rs2 / funct7）。
+这个问题我觉得没什么意义，对照指令卡就能写出来，就算是不懂RISCV的人也能做到，我不想花时间去查卡
+2. 如果你拿到一个未知的 32-bit 编码，硬件如何判断它是一条 R-type / I-type / S-type / B-type？判断逻辑的关键在哪个 field？
+看funct3</p>
+<h3 id="q3-addressing-modes">Q3. Addressing modes（⬜）</h3>
+<p><code>register-register</code>（RR）、<code>immediate</code>、<code>base+offset</code> 三种寻址方式各适合什么场景？
+load/store 架构（RISC）为什么<strong>强制</strong>访存和计算分开（指令不能直接 <code>add x5, [x6]</code>）？这在硬件上省掉了什么？
+第一种是逻辑运算类指令，操作数都在寄存器中保存，第二种是也是逻辑运算类，一个操作数在寄存器中，另一个是常数，包含在指令中，第三个是访存指令，基地址在寄存器中，偏移地址在指令中。第二个问题不知道怎么回答</p>
+<h3 id="q4">Q4. 控制流指令的数据通路（⬜⬜）</h3>
+<p><code>jal</code> 和 <code>jalr</code> 的<strong>返回地址</strong>和<strong>跳转目标</strong>分别怎么计算？
+<code>jalr</code> 为什么比 <code>jal</code> 多一条数据通路路径（ALU 结果 → PC）？分支（B-type）为什么又是另一条路（adder → PC）？</p>
+<hr />
+<h2 id="part-b">Part B：流水线</h2>
+<h3 id="q5-5">Q5. 5 级流水线数据通路（⬜⬜）</h3>
+<p>画出 IF/ID/EX/MEM/WB 五级流水线的<strong>简化数据通路</strong>，标出每一级之间的流水线寄存器（IF/ID、ID/EX、EX/MEM、MEM/WB）。不用画到信号级，画出「数据流 + 每级存了啥」即可。</p>
+<h3 id="q6-hazard">Q6. 三类 Hazard（⬜⬜）</h3>
+<p>用 RTL 语言回答：
+1. RAW hazard 的 <strong>forwarding 条件</strong>怎么写？（提示：<code>EX/MEM.RegWrite &amp;&amp; EX/MEM.RegisterRd ≠ 0 &amp;&amp; EX/MEM.RegisterRd == ID/EX.RegisterRs1</code> 这类判断——为什么第一个条件必须是 <code>RegWrite</code>？）
+2. <strong>load-use stall</strong> 为什么必须 stall 一级？forwarding 能不能救它？为什么不能？</p>
+<h3 id="q7-penalty">Q7. 分支 penalty 的定量估算（⬜⬜）</h3>
+<p>单周期 CPI = 1，理想 5 级流水线 CPI = 1。设每个分支的 penalty 是 2 cycle：
+1. 如果分支占比 20%，实际 CPI 是多少？（精确分支损失 = penalty × 分支占比，先算这个）
+2. 如果加一个 2-bit predictor，预测正确率 90%（预测错误仍付 2 cycle penalty），CPI 是多少？
+3. 从这个算式看，<strong>降低分支损失</strong>有几个杠杆？（正确率 / penalty / 分支占比，哪个你能动、哪个动不了？）</p>
+<h3 id="q8">Q8. 加分支预测器的硬件（⬜⬜⬜）</h3>
+<p>要在 Lab 1a 的 5 级流水线（无 forward）上加 BTB + 2-bit predictor，<strong>取指阶段</strong>需要哪些额外硬件？
+（提示：BTB 存什么？预测正确时 PC 从哪里取？预测错误时怎么恢复？如果 BTB 命中但预测方向错，周期损失几拍？）</p>
+<hr />
+<h2 id="part-c">Part C：缓存与存储层次</h2>
+<h3 id="q9-cache">Q9. Cache 组织方式（⬜⬜）</h3>
+<p>直接映射 / 组相联 / 全相联三种组织方式的区别？
+associativity 升高：命中率上升，但硬件代价是什么？（提示：tag 比较器数量、替换逻辑、面积时序）</p>
+<h3 id="q10-cache">Q10. Cache 地址分解（⬜⬜）</h3>
+<p>一个 cache：<strong>line size = 64B，4-way set-associative，总容量 256KB，32-bit 地址</strong>。
+算出：
+1. offset 位数 = ？
+2. 一共多少 set = ？
+3. set index 位数 = ？
+4. tag 位数 = ？
+（这个必须会算，后面所有 cache 分析都用它）</p>
+<h3 id="q11">Q11. 写策略（⬜⬜）</h3>
+<p><code>write-through vs write-back</code>、<code>write-allocate vs no-write-allocate</code> 两对策略各自适用什么场景？
+为什么 GPU 的 L1/L2 大量使用 <strong>write-back</strong>？（提示：GPU 访存是 write-allocate + 整行读写，write-through 会放大多少带宽？）</p>
+<h3 id="q12-3c-model">Q12. 3C Model（⬜⬜）</h3>
+<p>compulsory / capacity / conflict miss 分别是什么？
+哪种可以通过<strong>增大 cache</strong>缓解？哪种<strong>不能</strong>？哪种可以通过<strong>提高 associativity</strong> 缓解？</p>
+<hr />
+<h2 id="part-d">Part D：体系结构深水区（听过就行，答不上很正常）</h2>
+<h3 id="q13-memory-consistency-vs-cache-coherence">Q13. Memory Consistency vs Cache Coherence（⬜⬜⬜）</h3>
+<p><strong>一致性（consistency）</strong> 和 <strong>缓存一致性（coherence）</strong> 的区别是什么？（提示：一个管「你观察到的访问顺序」，一个管「多个 cache 对同一地址看到同一份值」）</p>
+<h3 id="q14-ooo-warwaw">Q14. OoO 如何消 WAR/WAW（⬜⬜⬜）</h3>
+<p>乱序执行怎么消除 <strong>WAR</strong> 和 <strong>WAW</strong> hazard？为什么它<strong>消除不了 RAW</strong>？
+用 register renaming + ROB 的角度解释（答不上就写「知道这个名词，机制不熟」即可）。</p>
+<h3 id="q15-virtual-memory-tlb">Q15. Virtual Memory / TLB（⬜⬜）</h3>
+<p>page table、TLB、page walk 各是什么？
+为什么 <strong>TLB miss</strong> 那么贵（要读多级 page table，几十上百 cycle）？GPU 为什么对 TLB miss 的容忍度比 CPU 高？</p>
+<h3 id="q16-smt-vs-ooo">Q16. SMT vs OoO 的延迟隐藏思路（⬜⬜⬜）</h3>
+<p>同时多线程（SMT）和乱序执行，在<strong>隐藏延迟</strong>上的思路有什么本质不同？
+哪个是「把空闲的硬件填满」，哪个是「把指令流内部的并行挖出来」？</p>
+<hr />
+<h2 id="part-egpgpu">Part E：GPGPU 常识</h2>
+<h3 id="q17-simt-vs-simd">Q17. SIMT vs SIMD（⬜⬜）</h3>
+<p>SIMT 和 SIMD 的区别？
+为什么 NVIDIA 说自己是 <strong>SIMT 不是 SIMD</strong>？warp 又是什么？（提示：SIMD 是数据级并行，SIMT 是线程级并行 + 硬件广播，各 lane 有自己的 PC 和寄存器堆吗？）</p>
+<h3 id="q18-gpu">Q18. GPU 为什么能容忍高延迟（⬜⬜）</h3>
+<p>CPU 用巨大 cache + 乱序去<strong>降低</strong>访存延迟；GPU 却反着来——<strong>容忍</strong>高延迟。GPU 靠什么补回来？
+这跟「GPU 把面积用在更多 ALU 而不是 cache」是什么关系？</p>
+<h3 id="q19-memory-coalescing">Q19. Memory Coalescing（⬜⬜⬜）</h3>
+<p>一个 warp（32 个 thread）各自访问一个 4B 的全局地址：
+1. 如果 32 个地址<strong>连续</strong>（thread i 访问 address_base + i<em>4），硬件合并成几个 128B transaction？
+2. 如果 32 个地址</em><em>跨步 4B×32</em><em>（thread i 访问 address_base + i</em>128），需要几次 transaction？
+3. 为什么说 coalescing 是 GPU 访存优化的<strong>头号</strong>手段？</p>
+<h3 id="q20-branch-divergence">Q20. Branch Divergence（⬜⬜）</h3>
+<p>一个 warp 内执行 <code>if (tid % 2 == 0) A(); else B();</code>——32 个 thread 中 16 个走 A，16 个走 B。
+硬件实际怎么执行？（提示：lane mask、串行执行两条路径、重收敛）
+发散对<strong>吞吐</strong>的伤害是什么？（16/32 的 lane 在空转吗？）</p>
+<hr />
+<h2 id="_1">自评表（做完填这个）</h2>
+<p>对每题三选一：✅ 完整作答 / ◐ 听说过但不系统 / ❌ 完全没概念。</p>
+<table>
+<thead>
+<tr>
+<th>题号</th>
+<th>状态</th>
+<th>一句话：卡在哪 / 哪里不确定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td>听说过但不系统</td>
+<td></td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>完整作答</td>
+<td>需要查指令手册</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>听说过但不系统</td>
+<td>知道三种寻址方式的含义，但是不知道为什么要这样</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>听说过但不系统</td>
+<td>之前看过但是忘记了</td>
+</tr>
+<tr>
+<td>Q5</td>
+<td>听说过但不系统</td>
+<td></td>
+</tr>
+<tr>
+<td>Q6</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q7</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q8</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q9</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q10</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q11</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q12</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q13</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q14</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q15</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q16</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q17</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q18</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q19</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+<tr>
+<td>Q20</td>
+<td>完全没概念</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>汇总</strong>（把每块 ✅ 的数量填进去）：</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>主题</th>
+<th>✅ 数 / 题数</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>ISA</td>
+<td>1/4</td>
+<td>系统学过？还是零星印象？</td>
+</tr>
+<tr>
+<td>B</td>
+<td>流水线</td>
+<td>0/4</td>
+<td>硬件直觉能不能撑住定量分析？</td>
+</tr>
+<tr>
+<td>C</td>
+<td>缓存</td>
+<td>0/4</td>
+<td>组织方式熟了，写策略/3C 呢？</td>
+</tr>
+<tr>
+<td>D</td>
+<td>深水区</td>
+<td>0/4</td>
+<td>这块是 Phase 1 后半 + Phase 3 的地基</td>
+</tr>
+<tr>
+<td>E</td>
+<td>GPGPU</td>
+<td>0/4</td>
+<td>进 Phase 2 前的起点</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>我怎么用你的结果</strong>：✅ 多的部分，Phase 1 对应章节可以快进；◐ 多的部分，那周的 lab 我会加讲解；❌ 多的部分不丢人，本来就是计划里要补的。把自评表发我，我们据此微调第一周的内容。</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
