@@ -49,7 +49,7 @@ D:\learn_ca\
 
 - **工作流**：写笔记/lab → `git add -A; git commit; git push`（网站 20 秒内自动更新）→ 完成任务时看板拖到 done + PLAN.md 打勾。
 - **站点覆盖范围**：`notes/` `papers/` `reviews/` `labs/` 都会同步到网站（见 `.github/workflows/deploy-pages.yml` 的组装步骤）。lab 的 `build/` 已被 `.gitignore` 排除，不会进仓库。
-- **网络**：本机访问 GitHub 必须走本地代理 `127.0.0.1:7890`（git 已全局配置；gh CLI 为免安装版，调用时需设 `HTTPS_PROXY`/`HTTP_PROXY` 指向代理）。
+- **网络**（2026-09-25 更正）：git **并未**全局配置代理，实际是**直连** GitHub 就能用（`git push` 实测正常，只是偶尔慢，超时给到 180s 以上）。本地代理 `127.0.0.1:7890` 时有时无；若哪天直连不通，再设 `HTTPS_PROXY`/`HTTP_PROXY` 指向该代理兜底。gh CLI 为免安装版，同样可能需要这两个环境变量。
 - **注意**：免费账号 Pages 不支持 private 仓库，故仓库为 public。含公司机密的笔记**不要**进仓库。
 
 ## 关键文档指针
