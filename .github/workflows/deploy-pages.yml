@@ -26,4 +26,5 @@ jobs:
           cp -r notes docs/notes
           cp -r papers docs/papers
           cp -r reviews docs/reviews
+          cp -r labs docs/labs
       - run: mkdocs gh-deploy --force

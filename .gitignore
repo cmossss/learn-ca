@@ -7,8 +7,12 @@ work/
 vsim.wlf
 *.wlf
 *.vcd
+*.fst
 *.fsdb
 *.vpd
+
+# lab 的构建产物（obj_dir / hex / 波形 / 日志）
+labs/*/build/
 transcript
 modelsim.ini
 xsim.dir/

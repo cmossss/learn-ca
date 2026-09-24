@@ -48,13 +48,26 @@ D:\learn_ca\
 | 进度看板 | https://github.com/users/cmossss/projects/1（26 个学习任务，按 Phase 0-3 分 Milestone） |
 
 - **工作流**：写笔记/lab → `git add -A; git commit; git push`（网站 20 秒内自动更新）→ 完成任务时看板拖到 done + PLAN.md 打勾。
+- **站点覆盖范围**：`notes/` `papers/` `reviews/` `labs/` 都会同步到网站（见 `.github/workflows/deploy-pages.yml` 的组装步骤）。lab 的 `build/` 已被 `.gitignore` 排除，不会进仓库。
 - **网络**：本机访问 GitHub 必须走本地代理 `127.0.0.1:7890`（git 已全局配置；gh CLI 为免安装版，调用时需设 `HTTPS_PROXY`/`HTTP_PROXY` 指向代理）。
 - **注意**：免费账号 Pages 不支持 private 仓库，故仓库为 public。含公司机密的笔记**不要**进仓库。
 
 ## 关键文档指针
 
 - **PLAN.md**：完整计划，分 Phase 0（摸底）/ Phase 1（体系结构核心，第 1-6 周）/ Phase 2（GPGPU 基础，第 7-12 周）/ Phase 3（GPGPU 深潜，第 13-20 周）。每个 Phase 都有 RTL lab 清单和英文资源列表。改动计划、打勾推进时更新它。
-- **当前进度**：Phase 0 摸底自测已完成（2026-08-29，`notes/self_assessment.md`）。结论：**体系结构接近零起点**，Phase 1 从 Lab 0 正常推进，不可快进。
+- **labs/lab0/README.md**：Lab 0 的任务说明、接口约定、实现顺序、调试建议。**每个 lab 都按这个模式组织**（README + rtl/ + tb/ + sw/ + Makefile），后续 lab 复用 lab0 的 sw 工具链。
+- **reviews/**：每周复盘。**目前一篇都还没写**（Phase 0 从 2026-08-29 开始，已 4 周），下次优先补。
+
+### 当前进度（2026-09-25 更新）
+
+| 项 | 状态 |
+|---|---|
+| Phase 0.1 摸底自测 | ✅ 2026-08-29，`notes/self_assessment.md`。结论：**体系结构接近零起点**，不可快进 |
+| Phase 0.2 仿真环境 | ✅ Verilator 5.008 + iverilog + gtkwave 均在位 |
+| Phase 0.3 Lab 0 验证环境 | ✅ 2026-09-25，`labs/lab0/`。工具链 / tb / 5 个自检测试程序齐备，**测试程序已用参考模型交叉验证正确** |
+| Phase 0.3 Lab 0 RTL 本体 | ⬜ **只差这个** —— 填 `labs/lab0/rtl/rv32i_core.sv`，验收标准 `make test` 五个全 PASS |
+| Phase 0.4 笔记模板 | ⬜ 未开始 |
+| Weekly review | ⬜ 未开始，已欠 4 周 |
 
 ## 进行中的约定
 
@@ -62,3 +75,4 @@ D:\learn_ca\
 - 卡住超过 30 分钟就鼓励学员来问。
 - 每周复盘写进 `reviews/`，并在 PLAN.md 上打勾。
 - 学习产出（笔记 / lab 进展）完成后提醒 `git push` 到 GitHub，站点自动更新。
+- **给 lab 搭验证环境时**：搭完必须先用一次性参考实现把测试程序全跑 PASS 再交付，**参考实现只放临时目录、绝不进仓库**——RTL 本体是学员的作业。搭 Lab 0 时靠这条查出 3 个测试程序自身的 bug。见 `labs/lab0/README.md` 结尾的工具链坑记录。

@@ -31,5 +31,7 @@ nav:
   - 学习计划: PLAN.md
   - 学习笔记:
       - 摸底自测: notes/self_assessment.md
+  - RTL Labs:
+      - Lab 0 · RV32I 单周期 CPU: labs/lab0/README.md
   - 每周复盘: reviews/index.md
   - 论文精读: papers/index.md

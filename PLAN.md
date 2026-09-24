@@ -38,11 +38,12 @@ D:\learn_ca\
 **目标**：确认知识缺口，跑通仿真环境，完成第一个热身练习。
 
 - [x] **0.1 摸底自测** ✅ 完成（2026-08-29）。结论：**体系结构接近零起点**——Part A 有零星印象（RISC 定长、三种寻址模式含义），但 Q2 判型答成 funct3（应为 opcode）、load-store 设计动机不清晰；Part B~E 全部「完全没概念」。**Phase 1 不可快进**，从 Lab 0 正常推进。注意：学员自评偏保守（Q1 实际答对却标「听说过」），以实际作答为准。
-- [ ] **0.2 仿真环境确认**：确认你现有仿真 flow 能跑 SystemVerilog，能看波形。若想在家也练，可考虑 [Verilator](https://www.veripool.org/verilator/)（开源、快，适合本计划；工作环境用公司 flow 即可）
+- [x] **0.2 仿真环境确认**：确认你现有仿真 flow 能跑 SystemVerilog，能看波形。若想在家也练，可考虑 [Verilator](https://www.veripool.org/verilator/)（开源、快，适合本计划；工作环境用公司 flow 即可）
 - [ ] **0.3 Lab 0：RV32I 单周期 CPU**（热身 + 验证环境）
   - 实现 IF/ID/EX/MEM/WB 五段逻辑（非流水线）的 RV32I 处理器：取指、译码、寄存器堆、ALU、数据内存
   - 跑通简单测试程序（如求斐波那契），能看波形
   - 参考：Patterson & Hennessy《Computer Organization and Design》RISC-V 版 Ch.4 的 RISC-V 数据通路；[RISC-V 规范](https://riscv.org/technical/specifications/)
+  - [x] **0.3.1 验证环境已搭好**（2026-09-25，`labs/lab0/`）：工具链（`riscv64-linux-gnu-gcc` 裸机模式，无需额外安装）、链接脚本、hex 转换、testbench（含有 tohost 监视 + 超时保护 + 指令 trace）、5 个自检测试程序（ALU / 分支 / load-store / 排序 / 函数调用）全部就位。**5 个测试程序已用参考模型交叉验证过，本身是正确的。** 只剩 `rtl/rv32i_core.sv` 要填。见 `labs/lab0/README.md`
 - [ ] **0.4 搭建笔记模板**：在 `notes/` 建 `template.md`
 
 ---
